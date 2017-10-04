@@ -11,6 +11,10 @@ public class Restaurant extends BaseEntity<String> {
 
     private List<Table> tables = new ArrayList<Table>();
 
+    public Restaurant(String name, String id) {
+        super(id, name);
+    }
+
     public Restaurant(String name, String id, List<Table> tables) {
         super(id, name);
         this.tables = tables;

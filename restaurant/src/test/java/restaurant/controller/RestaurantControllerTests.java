@@ -12,12 +12,18 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.Assert.*;
-
 public class RestaurantControllerTests extends AbstractRestaurantControllerTests {
 
     protected static final Restaurant restaurantStaticInstance = new Restaurant(RESTAURANT,
             RESTAURANT_NAME, null);
+    protected TestRestaurantRepository testRestaurantRepository = new TestRestaurantRepository();
+    protected RestaurantService restaurantService = new RestaurantServiceImpl(testRestaurantRepository);
+
+    @Before
+    public void setup() {
+        restaurantController = new RestaurantController(restaurantService);
+
+    }
 
     protected static class TestRestaurantRepository implements RestaurantRepository<Restaurant, String> {
 
@@ -81,18 +87,10 @@ public class RestaurantControllerTests extends AbstractRestaurantControllerTests
         public Entity get(String id) {
             return entities.get(id);
         }
+
         @Override
         public Collection<Restaurant> getAll() {
             return entities.values();
         }
-    }
-
-    protected TestRestaurantRepository testRestaurantRepository = new TestRestaurantRepository();
-    protected RestaurantService restaurantService = new RestaurantServiceImpl(testRestaurantRepository);
-
-    @Before
-    public void setup() {
-        restaurantController = new RestaurantController(restaurantService);
-
     }
 }

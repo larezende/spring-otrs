@@ -17,7 +17,7 @@ zuul:
     routes:
         restaurantapi:
             path: /restaurantapi/**
-            serviceId: restaurant-service
+            serviceId: com.larezende.lab.restaurant-service
 
 server:
     port: 8765

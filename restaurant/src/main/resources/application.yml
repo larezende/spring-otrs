@@ -1,7 +1,14 @@
 spring:
   application:
-     name: com.larezende.lab.restaurant-service
+     name: restaurant-service
 
+eureka:
+  instance:
+    preferIpAddress: true
   client:
+    registerWithEureka: true
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+        defaultZone: http://discovery:8761/eureka/
+
+server:
+  port: 8081

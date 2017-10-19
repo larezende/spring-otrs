@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+
+  discovery:
+    image: larezende/spring-otrs-discovery
+    ports:
+      - 8761:8761
+
+  edge:
+    image: larezende/spring-otrs-edge
+    ports:
+      - 8080:8080
+
+  restaurant:
+    image: larezende/spring-otrs-restaurant

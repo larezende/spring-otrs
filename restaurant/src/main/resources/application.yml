@@ -8,7 +8,7 @@ eureka:
   client:
     registerWithEureka: true
     serviceUrl:
-        defaultZone: http://discovery:8761/eureka/
+        defaultZone: ${DISCOVERY_ZONE}
 
 server:
   port: 8081
